@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nested Loop</title>
+  <style>
+    td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    table {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<p>[enter a number between 2 and 10]</p>
+<input type="text" id="rows"> by <input type="text" id="cols"><br><br>
+<button onclick="generateTable()">Click here when ready!</button>
+
+<div id="output"></div>
+
+<script>
+function generateTable() {
+  var rows = document.getElementById("rows").value;
+  var cols = document.getElementById("cols").value;
+
+  
+  rows = parseInt(rows);
+  cols = parseInt(cols);
+
+
+  if (rows < 2 || rows > 10 || cols < 2 || cols > 10) {
+    alert("Please enter numbers between 2 and 10");
+    document.getElementById("output").innerHTML = "";
+    return;
+  }
+
+  var output = "<table>";
+  for (var i = 1; i <= rows; i++) {
+    output += "<tr>";
+    for (var j = 1; j <= cols; j++) {
+      output += "<td>" + (i * j) + "</td>";
+    }
+    output += "</tr>";
+  }
+  output += "</table>";
+
+  document.getElementById("output").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
